@@ -1,0 +1,85 @@
+.mid-section__slider {
+  position: relative;
+  overflow: hidden;
+  width: 750px;
+
+}
+
+.slider__item {
+  width: 750px;
+  height: 400px;
+  display: inline-block;
+  position: relative;
+}
+
+.slider-item__img {
+  width: initial;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.slider__prev-btn,
+.slider__next-btn {
+  width: 44px;
+  height: 80px;
+  position: absolute;
+  top: 42%;
+  left: 0;
+  background-color: transparent;
+  background-image: url('../assets/img/arrow-left.png');
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+}
+
+.slider__next-btn {
+  left: 93.5%;
+  background-image: url('../assets/img/arrow-right.png');
+
+}
+
+.slider__next-btn:hover,
+.slider__prev-btn:hover {
+  opacity: 0.7;
+}
+
+.slider__content {
+  width: 8000px;
+  transition: .4s;
+}
+
+.slider__content:hover ~ .slider__prev-btn,
+.slider__content:hover ~ .slider__next-btn {
+  opacity: 0.5;
+}
+
+@media (max-width: 835px) {
+  .slider__item {
+    width: 300px;
+    height: 160px;
+  }
+
+  .mid-section__slider {
+    width: 300px;
+  }
+
+  .slider__content {
+    width: 3500px;
+  }
+
+  .slider__prev-btn,
+  .slider__next-btn {
+    width: 24px;
+    height: 40px;
+    top: 40%;
+    left: 0;
+    background-size: cover;
+  }
+
+  .slider__next-btn {
+    left: 92%;
+  }
+}
+

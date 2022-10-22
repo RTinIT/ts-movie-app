@@ -1,0 +1,12 @@
+.card-field {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 5%;
+}
+
+.card-field-wrapper {
+  width: 100%;
+}
+
