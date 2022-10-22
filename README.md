@@ -1,3 +1,5 @@
-# ts-movie-app
+# 🚀 Welcome to Movie App!
 
-## [Demo](https://rtinit.github.io/ts-movie-app/deploy/)
+### Приложение для поиска фильмов, сериалов, мультфильмов и т.д.
+
+### [Demo](https://rtinit.github.io/ts-movie-app/deploy/)
