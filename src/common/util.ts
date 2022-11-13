@@ -5,7 +5,11 @@ export function handler(arr?: IMovieGenre[] | IMovieContries[]): string {
 }
 
 export function isNull(value: string): string {
-  return value !== 'null' ? value : '-';
+  if (value && value !== 'null') {
+    return value.length > 3 ? `${Math.trunc(parseInt(value))}%` : value;
+  } else {
+    return '-';
+  }
 }
 
 export function staffHandler(staffList: IStaffData[], profession: string) {
