@@ -37,7 +37,21 @@ svg {
   border-radius: 50%;
   text-align: center;
   line-height: 40px;
+}
 
+.high-rate {
+  color: #2cb52c;
+  border: 2px solid #2cb52c;
+}
+
+.low-rate {
+  color: orange;
+  border: 2px solid orange;
+}
+
+.empty-rate {
+  color: #999;
+  border: 2px solid #999;
 }
 
 .star {

@@ -1,6 +1,6 @@
 import Component from '../../../common/component';
 import { AdditionalDataType } from '../../../common/interfaces';
-import { handler, staffHandler } from '../../../common/util';
+import { handler, isNull, staffHandler } from '../../../common/util';
 import { Rating } from './Rating';
 import Facts from './Facts';
 import Slider from './Slider';
@@ -39,8 +39,9 @@ class AdditionalView extends Component {
     const direсtors = new MovieInfo(textWrapper.node, 'Режисёры', `${staffHandler(staffData, 'DIRECTOR')}`);
     const actors = new MovieInfo(textWrapper.node, 'В ролях', `${staffHandler(staffData, 'ACTOR')}`);
     const rating = new Rating(textWrapper.node, filmData.ratingKinopoisk);
-    const ratingNum = new Component(rating.node, 'div', 'rating__count', `${filmData.ratingKinopoisk}`);
-
+    const ratingCount = isNull(filmData.ratingKinopoisk);
+    const ratingWrap = new Component(rating.node, 'div', 'rating__count', ratingCount);
+    this.makeRateBorder(ratingCount, ratingWrap.node)
 
 /*                         Set movie description                        */
     const discriptionTitle = new Component(midSection.node, 'h3', 'mid-section__text-title', 'Краткое описание')
@@ -60,6 +61,20 @@ class AdditionalView extends Component {
     const videoData = data[4];
     const res = videoData.items.filter((it) => it.site === 'YOUTUBE');
     return res.length !== 0;
+  }
+
+  makeRateBorder(rate: string, elem: HTMLElement) {
+    if (isNaN(+rate)) {
+        elem.classList.add('empty-rate')
+    }
+
+    if (+rate >= 7) {
+        elem.classList.add('high-rate')
+    }
+
+    if (+rate < 7) {
+        elem.classList.add('low-rate')
+    }
   }
 }
 
