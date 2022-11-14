@@ -4,8 +4,8 @@ export function handler(arr?: IMovieGenre[] | IMovieContries[]): string {
   return arr.map((e) => Object.values(e)).slice(0,3).join(', ');
 }
 
-export function isNull(value: string): string {
-  return value !== 'null' ? value : '-';
+export function isNull(value: number): string {
+  return `${value}` !== 'null' ? `${value}` : '-';
 }
 
 export function staffHandler(staffList: IStaffData[], profession: string) {
@@ -15,17 +15,5 @@ export function staffHandler(staffList: IStaffData[], profession: string) {
   } else {
     const actors = staffList.filter((staff) => staff.professionKey === profession).slice(0, 5);
     return actors.map((actor) => actor.nameRu).join(', ');
-  }
-}
-
-export function ratingHandler(value: string, elem: HTMLElement): void {
-  if (value && value !== 'null') {
-    if (+value > 7) {
-      elem.style.color = '#2cb52c';
-      elem.style.border = '2px solid #2cb52c';
-    } else {
-      elem.style.color = 'orange';
-      elem.style.border = '2px solid orange';
-    }
   }
 }
