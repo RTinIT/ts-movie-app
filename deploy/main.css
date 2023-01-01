@@ -455,10 +455,11 @@ template {
 
 .form-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: #1C172E;
   position: relative;
+  gap: 50px;
 }
 
 .logo-wrapper {
