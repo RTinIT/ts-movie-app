@@ -23,8 +23,6 @@ class Slider extends Component {
     this.renderSliderItem(data);
 
     window.addEventListener('resize', () => {
-      console.log(innerWidth);
-      
       this.step = innerWidth > 830 ? 750 : 300;
     })
 
