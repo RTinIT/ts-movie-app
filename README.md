@@ -1,4 +1,4 @@
-# 🚀 Welcome to Movie App!
+# 🚀 Welcome to the Movie App!
 
 ### Приложение для поиска фильмов, сериалов, мультфильмов и т.д.
 
