@@ -1,10 +1,72 @@
+.header {
+  background-color: #1C172E;
+}
+
 .form-wrapper {
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1C172E;
+  gap: 50px;
+  padding: 0 2em;
+  margin: 0 auto;
+}
+
+.form {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1C172E;
+}
+
+.input-wrapper {
   position: relative;
-  gap: 50px;
+  margin: 50px auto;
+  width: 200px;
+}
+
+.input-wrapper input {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  color: #ffeefe;
+}
+
+.input-wrapper .input-wrapper__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-wrapper input:focus ~ .input-wrapper__label,
+.input-wrapper input:valid ~ .input-wrapper__label {
+  top: -20px;
+  font-size: 16px;
+  color: #f71fe6;
+}
+
+.input-wrapper .input-wrapper__underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #f71fe6;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus ~ .input-wrapper__underline,
+.input-wrapper input:valid ~ .input-wrapper__underline {
+  transform: scaleX(1);
 }
 
 .logo-wrapper {
@@ -15,54 +77,32 @@
 }
 
 .logo {
-  color: #E2B56E;
+  color: #f71fe6;
   width: 160px;
 }
 
-.input {
-  font-size: 1.6em;
-  color: white;
-  background-color: #231E36;
-}
-
-.input::placeholder {
-  color: #BCB8CC;
-}
-
-.img {
-  display: block;
-  width: 24px;
-  height: 24px;
-  background-image: url('../assets/img/search.png');
-  animation: animate-logo 5s infinite;
-}
-
-@keyframes animate-logo {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
-}
-
 @media (max-width: 768px) {
-  .input {
-    font-size: 1em;
-  }
-
   .logo {
     font-size: 1.2em;
     width: 100px;
   }
 }
 
-@media (max-width: 415px) {
+@media (max-width: 570px) {
   .form-wrapper {
     flex-direction: column;
+    gap: 0;
   }
 
-  .img {
-    display: none;
+  .input-wrapper input {
+    text-align: center;
   }
 
-  .form {
-    padding-bottom: 10px;
+  .logo-wrapper {
+    margin-top: 1em;
+  }
+
+  .input-wrapper .input-wrapper__label {
+    left: calc(50% - 67px);
   }
 }

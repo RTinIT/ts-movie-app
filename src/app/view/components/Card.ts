@@ -19,8 +19,15 @@ class Card extends Component {
 
   render(data: IMovieData, parent?: HTMLElement) {
     const img = new Component(this.node, 'div', 'card__img');
-    img.node.style.backgroundImage = `url(${data.posterUrl})`;
+    img.node.style.backgroundImage = this.checkPoster(data);
     const btnMore = new Component(this.node, 'button', 'card__btn', 'Узнать больше');
+  }
+
+  checkPoster(data: IMovieData) {
+    if (data.posterUrl) {
+      return `url(${data.posterUrl})`;
+    }
+    this.destroy();
   }
 }
 

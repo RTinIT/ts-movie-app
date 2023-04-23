@@ -1,6 +1,6 @@
 import MovieView from '../view/MovieView';
 import MovieModel from '../model/MovieModel';
-import { AdditionalDataType, IResponseData } from '../../common/interfaces';
+import { IResponseData } from '../../common/interfaces';
 
 class MovieController {
   view: MovieView;
@@ -14,7 +14,6 @@ class MovieController {
   }
 
   init() {
-/*             Render default page          */
     this.model.getData().then((data) => {
       this.view.start(data);
       this.setEventListeners(data);
@@ -22,40 +21,26 @@ class MovieController {
   }
 
   setEventListeners(data: IResponseData) {
-    this.view.search.form.addEventListener('submit', (e: SubmitEvent) => {
+    this.view.header.search.form.addEventListener('submit', (e: SubmitEvent) => {
       e.preventDefault();
       this.searching();
     });
-    this.view.search.backBtn.node.addEventListener('click', () => {
-      const btnBack = this.view.search.backBtn.node;
-      const form = this.view.search.form;
-      this.view.additionalView.destroy();
-      this.view.update(data);
-      this.setEventListeners(data);
-      btnBack.classList.add('invisible');
-      form.classList.remove('invisible');
-      this.view.cardField.clearCardList();
-    });
     this.view.cardField.cardList.forEach((e) => {
       e.node.addEventListener('click', (e: Event) => {
-        const form = this.view.search.form;
-        const btnBack = this.view.search.backBtn.node;
+        document.body.classList.add("blocked");
+        const form = this.view.header.search.form;
         this.recChoosedCard(e);
         this.getAdditionalInfo();
-        form.classList.add('invisible');
-        btnBack.classList.remove('invisible');
       });
     });
   }
 
   searching() {
-    const value = this.view.search.getValue();
+    const value = this.view.header.search.getValue();
     this.model.getData(value).then((data) => {
-      const btnBack = this.view.search.backBtn.node;
-      const input = this.view.search.input;
+      const input = this.view.header.search.input;
       this.view.update(data);
       this.setEventListeners(data);
-      this.view.search.hideOrShow(btnBack, input);
     });
   }
 
@@ -70,7 +55,7 @@ class MovieController {
   getAdditionalInfo() {
     this.model.getDataByFilmId(this.choosedCard.id)
       .then((data) => {
-        this.view.renderAdditionalView(this.view.cardFieldWrapper.node, data);
+        this.view.showModal(data);
       })
   }
 }

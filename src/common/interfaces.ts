@@ -83,52 +83,12 @@ export interface IStaffData {
   professionKey: string
 }
 
-export interface IFactsData {
-  total: number,
-  items: [
-    {
-      text: string,
-      type: string,
-      spoiler: boolean
-    }
-  ]
-}
-
-export interface IVideoData {
-  total: number,
-  items: IItemVideoData[]
-}
-
-export interface IItemVideoData {
-  url: string,
-  name: string,
-  site: string
-}
-
 export type AdditionalDataType = [
   IFilmDataById,
   IStaffData[],
-  IFactsData,
-  IFrameMovieData,
-  IVideoData
 ]
 
 export interface IAdditionalData {
   filmData: IFilmDataById,
   staffData: IStaffData[],
-  factsData: IFactsData,
-  frameData: IFrameMovieData,
-  videoData: IVideoData
-}
- 
-
-export interface IFrameMovieData {
-  total: number,
-  totalPages: number,
-  items: IItemFromFrameMovie[]
-}
-
-export interface IItemFromFrameMovie {
-  imageUrl: string,
-  previewUrl: string,
 }

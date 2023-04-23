@@ -2,28 +2,17 @@ import Component from '../../../common/component';
 import { AdditionalDataType } from '../../../common/interfaces';
 import { handler, isNull, staffHandler } from '../../../common/util';
 import { Rating } from './Rating';
-import Facts from './Facts';
-import Slider from './Slider';
-import VideoPlayer from './VideoPlayer';
 import MovieInfo from './MovieInfo';
-
 
 class AdditionalView extends Component {
   constructor(parent: HTMLElement, data?: AdditionalDataType) {
     super(parent, 'div', 'additional-info');
 
 /*                         Used data                        */
-    const [filmData, staffData, factsData, frameMovie, videoData] = data;
+    const [filmData, staffData] = data;
 
 /*                         Sections                        */
     const topSection = new Component(this.node, 'section', 'additional-info__top-section');
-    const midSection = new Component(this.node, 'section', 'additional-info__mid-section');
-    const botSection = new Component(this.node, 'section', 'additional-info__bot-section');
-
-/*                         Check necessity render bot section                        */
-    if (!factsData.total && !this.hasVideoData(data)) {
-      botSection.destroy();
-    }
 
 /*                         Set poster                        */
     const imgWrapper = new Component(topSection.node, 'div', 'top-section__img-wrapper');
@@ -44,23 +33,7 @@ class AdditionalView extends Component {
     this.makeRateBorder(ratingCount, ratingWrap.node)
 
 /*                         Set movie description                        */
-    const discriptionTitle = new Component(midSection.node, 'h3', 'mid-section__text-title', 'Краткое описание')
-    const discription = new Component(midSection.node, 'p', 'mid-section__text', `${filmData.description ? filmData.description : ''}`);
-
-/*                         Set movie images slider                        */
-    const slider = new Slider(midSection.node, frameMovie);
-
-/*                         Set movie traler                        */
-    const player = new VideoPlayer(botSection.node, videoData);
-
-/*                         Set movie facts                        */
-    const facts = new Facts(botSection.node, factsData);
-  }
-
-  hasVideoData(data: AdditionalDataType) {
-    const videoData = data[4];
-    const res = videoData.items.filter((it) => it.site === 'YOUTUBE');
-    return res.length !== 0;
+    const discription = new Component(textWrapper.node, 'p', 'text-wrapper__description', `${filmData.description ? filmData.description : ''}`);
   }
 
   makeRateBorder(rate: string, elem: HTMLElement) {

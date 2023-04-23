@@ -1,12 +1,31 @@
 .card-field {
+  max-width: 1280px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 5%;
+  padding: 2em;
+  margin: 0 auto;
 }
 
 .card-field-wrapper {
   width: 100%;
 }
 
+.scroll-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 90%;
+  right: 2em;
+  padding: .2em .2em;
+  text-decoration: none;
+  color: inherit;
+  background: #f7f7f733;
+  border-radius: 8px;
+}
+
+.scroll-to-top img {
+  display: block;
+}

@@ -15,6 +15,12 @@ class CardField extends Component {
       const card = new Card(this.node, movieData);
       this.cardList.push(card);
     });
+
+    const btn = new Component(this.node, "a", "scroll-to-top");
+    const img = new Component(btn.node, "img", "");
+    img.node.setAttribute("src", "/public/arrow-up.svg");
+
+    btn.node.setAttribute("href", "#logo");
   }
 
   clearCardList() {

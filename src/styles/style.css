@@ -4,9 +4,13 @@
 @import './card-field.css';
 @import './form.css';
 @import './additional-view.css';
-@import './facts.css';
-@import './slider.css';
 @import './rating.css';
+@import './modal.css';
+
+
+*{
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Raleway', 'sans-serif';
@@ -17,6 +21,10 @@ body {
   margin: 0 auto;
   width: 100%;
   background-color: #231E36;
+}
+
+.blocked {
+  overflow: hidden;
 }
 
 p {
