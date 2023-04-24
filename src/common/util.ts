@@ -1,6 +1,6 @@
-import { IMovieContries, IMovieGenre, IStaffData } from './interfaces';
+import { IMovieCountries, IMovieGenre, IStaffData } from './interfaces';
 
-export function handler(arr?: IMovieGenre[] | IMovieContries[]): string {
+export function handler(arr?: IMovieGenre[] | IMovieCountries[]): string {
   return arr.map((e) => Object.values(e)).slice(0,3).join(', ');
 }
 

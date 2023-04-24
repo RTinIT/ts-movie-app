@@ -2,7 +2,7 @@ import Component from "../../../common/component";
 import { IMovieData } from "../../../common/interfaces";
 
 class Card extends Component {
-  data: IMovieData;
+  private data: IMovieData;
 
   constructor(parent: HTMLElement, data: IMovieData) {
     super(parent, 'div', 'card');
@@ -17,13 +17,13 @@ class Card extends Component {
     }
   }
 
-  render(data: IMovieData, parent?: HTMLElement) {
+  public render(data: IMovieData, parent?: HTMLElement) {
     const img = new Component(this.node, 'div', 'card__img');
     img.node.style.backgroundImage = this.checkPoster(data);
     const btnMore = new Component(this.node, 'button', 'card__btn', 'Узнать больше');
   }
 
-  checkPoster(data: IMovieData) {
+  private checkPoster(data: IMovieData) {
     if (data.posterUrl) {
       return `url(${data.posterUrl})`;
     }

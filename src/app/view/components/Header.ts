@@ -2,7 +2,7 @@ import Component from "../../../common/component";
 import SearchBlock from './SearchBlock';
 
 class Header extends Component {
-  search: SearchBlock;
+  public search: SearchBlock;
 
   constructor(parent: HTMLElement) {
     super(parent, 'header', 'header');

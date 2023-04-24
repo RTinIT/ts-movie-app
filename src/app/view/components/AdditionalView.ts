@@ -11,13 +11,14 @@ class AdditionalView extends Component {
 /*                         Used data                        */
     const [filmData, staffData] = data;
 
-/*                         Sections                        */
+/*                         Section                        */
     const topSection = new Component(this.node, 'section', 'additional-info__top-section');
 
 /*                         Set poster                        */
     const imgWrapper = new Component(topSection.node, 'div', 'top-section__img-wrapper');
     const img = new Component(imgWrapper.node, 'img', 'img-wrapper__img');
     img.node.setAttribute('src', `${filmData.posterUrl}`);
+    img.node.setAttribute('alt', `Постер ${filmData.nameRu ? filmData.nameRu : filmData.nameEn}`);
 
 /*                         Set movie info                        */
     const textWrapper = new Component(topSection.node, 'div', 'top-section__text-wrapper');
@@ -27,16 +28,17 @@ class AdditionalView extends Component {
     const year = new MovieInfo(textWrapper.node, 'Год выпуска', `${filmData.year ? filmData.year : '-'}`);
     const direсtors = new MovieInfo(textWrapper.node, 'Режисёры', `${staffHandler(staffData, 'DIRECTOR')}`);
     const actors = new MovieInfo(textWrapper.node, 'В ролях', `${staffHandler(staffData, 'ACTOR')}`);
+
     const rating = new Rating(textWrapper.node, filmData.ratingKinopoisk);
     const ratingCount = isNull(filmData.ratingKinopoisk);
     const ratingWrap = new Component(rating.node, 'div', 'rating__count', ratingCount);
-    this.makeRateBorder(ratingCount, ratingWrap.node)
+    this.setBorder(ratingCount, ratingWrap.node)
 
 /*                         Set movie description                        */
     const discription = new Component(textWrapper.node, 'p', 'text-wrapper__description', `${filmData.description ? filmData.description : ''}`);
   }
 
-  makeRateBorder(rate: string, elem: HTMLElement) {
+  private setBorder(rate: string, elem: HTMLElement) {
     if (isNaN(+rate)) {
         elem.classList.add('empty-rate')
     }

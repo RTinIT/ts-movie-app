@@ -1,5 +1,5 @@
 import Component from '../../../common/component';
-import { svgEmptyStar, svgHalfStar, svgStar, svgStarMask } from '../../../common/star-svg';
+import { svgEmptyStar, svgHalfStar, svgStar, drawStar } from '../../../common/drawStar';
 
 export class Rating extends Component {
   constructor(parent: HTMLElement, data: number) {
@@ -13,7 +13,7 @@ export class Rating extends Component {
     const title = new Component(this.node, 'p', 'rating__title', 'Рейтинг: ');
 
     const starsWrapper = new Component(this.node, 'div', 'rating__stars');
-    const svgMasks = new Component(starsWrapper.node, 'div', 'rating__svg-masks', svgStarMask(countHalfStar));
+    const svgMasks = new Component(starsWrapper.node, 'div', 'rating__svg-masks', drawStar(countHalfStar));
     const svgStarContainer = new Component(starsWrapper.node, 'div', 'rating__svg-stars');
 
     for (let i = 0; i < countFilledStar; i++) {

@@ -3,12 +3,12 @@ import { AdditionalDataType } from "../../../common/interfaces";
 import AdditionalView from "./AdditionalView";
 
 class Modal extends Component {
-  data: AdditionalDataType;
-  additionalInfo: AdditionalView;
-  closeBtn: Component;
-  line1: Component;
-  line2: Component;
-  closeImg: Component;
+  private data: AdditionalDataType;
+  private additionalInfo: AdditionalView;
+  private closeBtn: Component;
+  private line1: Component;
+  private line2: Component;
+  private closeImg: Component;
 
   constructor(parent: HTMLElement, data: AdditionalDataType) {
     super(parent, "div", "modal");
@@ -21,7 +21,7 @@ class Modal extends Component {
     this.additionalInfo = new AdditionalView(this.node, data);
   }
 
-  hide() {
+  private hide() {
     document.body.classList.remove("blocked");
     this.node.classList.add("exit");
   

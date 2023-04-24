@@ -1,18 +1,15 @@
 import Component from "../../../common/component";
 
 class SearchBlock {
-  input: HTMLInputElement;
-  value: string;
-  form: HTMLFormElement;
-  searchBtn: Component;
+  public input: HTMLInputElement;
+  public form: HTMLFormElement;
 
   constructor() {
     this.form = document.createElement('form');
     this.input = document.createElement('input');
-    this.value = this.input.value;
   }
 
-  render(parent: HTMLElement): void {
+  public render(parent: HTMLElement): void {
     const wrapper = new Component(parent, 'div', 'form-wrapper');
     const logoWrapper = new Component(wrapper.node, 'div', 'logo-wrapper');
     const logo = new Component(logoWrapper.node, 'h1', 'logo', 'Movie App');
@@ -25,7 +22,7 @@ class SearchBlock {
   
     const inputWrapper = new Component(this.form, "div", "input-wrapper");
     inputWrapper.node.append(this.input);
-    const label = new Component(inputWrapper.node, "label", "input-wrapper__label", "Название фильма");
+    const label = new Component(inputWrapper.node, "label", "input-wrapper__label", "Поиск");
     label.node.setAttribute("for", "input");
     const underline = new Component(inputWrapper.node, "div", "input-wrapper__underline");
     this.form.append(inputWrapper.node);
@@ -35,17 +32,13 @@ class SearchBlock {
     parent.append(wrapper.node);
   }
 
-  getValue(): string {
+  public getValue(): string {
     return this.input.value;
   }
 
-  // hideOrShow(btn: HTMLElement, input: HTMLInputElement) {
-  //   if (btn.classList.contains('hidden')) {
-  //     input.classList.remove('hidden');
-  //   } else {
-  //     input.classList.add('hidden');
-  //   }
-  // }
+  public clearInput () {
+    this.input.value = "";
+  }
 }
 
 export default SearchBlock;

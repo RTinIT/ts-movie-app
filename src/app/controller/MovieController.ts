@@ -1,11 +1,12 @@
 import MovieView from '../view/MovieView';
 import MovieModel from '../model/MovieModel';
 import { IResponseData } from '../../common/interfaces';
+import { SelectedCard } from '../../common/interfaces';
 
 class MovieController {
-  view: MovieView;
-  model: MovieModel;
-  selectedCard: {name: string, id: string};
+  private view: MovieView;
+  private model: MovieModel;
+  private selectedCard: SelectedCard;
 
   constructor() {
     this.view = new MovieView();
@@ -20,7 +21,7 @@ class MovieController {
     });
   }
 
-  setEventListeners(data: IResponseData) {
+  private setEventListeners(data: IResponseData) {
     this.view.header.search.form.addEventListener('submit', (e: SubmitEvent) => {
       e.preventDefault();
       this.searching();
@@ -28,23 +29,22 @@ class MovieController {
     this.view.cardField.cardList.forEach((e) => {
       e.node.addEventListener('click', (e: Event) => {
         document.body.classList.add("blocked");
-        const form = this.view.header.search.form;
         this.saveSelectedCard(e);
         this.getAdditionalInfo();
       });
     });
   }
 
-  searching() {
+  private searching() {
     const value = this.view.header.search.getValue();
+    this.view.header.search.clearInput();
     this.model.getData(value).then((data) => {
-      const input = this.view.header.search.input;
       this.view.update(data);
       this.setEventListeners(data);
     });
   }
 
-  saveSelectedCard(e: Event) {
+  private saveSelectedCard(e: Event) {
     const clickedCard = e.currentTarget as HTMLElement;
     const id = clickedCard.dataset.filmid;
     const name = clickedCard.dataset.filmname;
@@ -52,7 +52,7 @@ class MovieController {
     this.selectedCard.id = id;
   }
 
-  getAdditionalInfo() {
+  private getAdditionalInfo() {
     this.model.getDataByFilmId(this.selectedCard.id)
       .then((data) => {
         this.view.showModal(data);

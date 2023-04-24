@@ -1,10 +1,10 @@
-export function svgStarMask(dataForMask: number): string {
+export function drawStar(amount: number): string {
   return `
   <svg style="width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <defs>
       <mask id="half">
         <rect x="0" y="0" width="32" height="32" fill="white" />
-        <rect x="${dataForMask}%" y="0" width="32" height="32" fill="black" />
+        <rect x="${amount}%" y="0" width="32" height="32" fill="black" />
       </mask>
 
       <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="star">

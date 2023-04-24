@@ -4,7 +4,7 @@ export interface IResponseData {
 }
 
 export interface IMovieData {
-  countries: IMovieContries[],
+  countries: IMovieCountries[],
   filmId: number,
   filmLength?: string
   genres: IMovieGenre[],
@@ -18,7 +18,7 @@ export interface IMovieData {
   year?: string,
 }
 
-export interface IMovieContries {
+export interface IMovieCountries {
   country: string,
 }
 
@@ -61,7 +61,7 @@ export interface IFilmDataById {
   type: string,
   ratingMpaa?: string,
   ratingAgeLimits: string,
-  countries: IMovieContries[],
+  countries: IMovieCountries[],
   genres: IMovieGenre[],
   startYear: number,
   endYear: number,
@@ -91,4 +91,9 @@ export type AdditionalDataType = [
 export interface IAdditionalData {
   filmData: IFilmDataById,
   staffData: IStaffData[],
+}
+
+export type SelectedCard = {
+  name: string,
+  id: string
 }

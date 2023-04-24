@@ -1,15 +1,12 @@
 import { AdditionalDataType, IMovieData } from "../../common/interfaces";
 
 class MovieModel {
-  apiKey: string;
-  defaultPage: string;
-  searchUrl: string;
-  searchByIdUrl: string;
-  searchActors: string;
-  movieFacts: string;
-  video: string;
-  frameMovie: string;
-  headers: Record<string, string>;
+  private apiKey: string;
+  private defaultPage: string;
+  private searchUrl: string;
+  private searchByIdUrl: string;
+  private searchActors: string;
+  private headers: Record<string, string>;
 
   constructor() {
     this.apiKey = process.env.API_KEY;
@@ -23,7 +20,7 @@ class MovieModel {
     }
   }
 
-  async getData(value?: string): Promise<{countPage: number, films: IMovieData[]}> {
+  public async getData(value?: string): Promise<{countPage: number, films: IMovieData[]}> {
     if (value) {
       const resp = await fetch(`${this.searchUrl}${value}`, {headers: this.headers});
       return resp.json();
@@ -33,7 +30,7 @@ class MovieModel {
     }
   }
 
-  async getDataByFilmId(id: string): Promise<AdditionalDataType> {
+  public async getDataByFilmId(id: string): Promise<AdditionalDataType> {
     try {
       return Promise.all([
         await (await fetch(`${this.searchByIdUrl}${id}`, {headers: this.headers})).json(),
