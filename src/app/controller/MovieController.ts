@@ -5,12 +5,12 @@ import { IResponseData } from '../../common/interfaces';
 class MovieController {
   view: MovieView;
   model: MovieModel;
-  choosedCard: {name: string, id: string};
+  selectedCard: {name: string, id: string};
 
   constructor() {
     this.view = new MovieView();
     this.model = new MovieModel();
-    this.choosedCard = {name: '', id: ''};
+    this.selectedCard = {name: '', id: ''};
   }
 
   init() {
@@ -29,7 +29,7 @@ class MovieController {
       e.node.addEventListener('click', (e: Event) => {
         document.body.classList.add("blocked");
         const form = this.view.header.search.form;
-        this.recChoosedCard(e);
+        this.saveSelectedCard(e);
         this.getAdditionalInfo();
       });
     });
@@ -44,16 +44,16 @@ class MovieController {
     });
   }
 
-  recChoosedCard(e: Event) {
+  saveSelectedCard(e: Event) {
     const clickedCard = e.currentTarget as HTMLElement;
     const id = clickedCard.dataset.filmid;
     const name = clickedCard.dataset.filmname;
-    this.choosedCard.name = name;
-    this.choosedCard.id = id;
+    this.selectedCard.name = name;
+    this.selectedCard.id = id;
   }
 
   getAdditionalInfo() {
-    this.model.getDataByFilmId(this.choosedCard.id)
+    this.model.getDataByFilmId(this.selectedCard.id)
       .then((data) => {
         this.view.showModal(data);
       })
