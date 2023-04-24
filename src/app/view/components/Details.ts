@@ -5,7 +5,7 @@ import { Rating } from './Rating';
 import MovieInfo from './MovieInfo';
 
 class Details extends Component {
-  constructor(parent: HTMLElement, data?: DetailsDataType) {
+  constructor(parent: HTMLElement, closeModal: () => void, data?: DetailsDataType) {
     super(parent, 'div', 'details');
 
 /*                         Used data                        */
@@ -13,6 +13,11 @@ class Details extends Component {
 
 /*                         Section                        */
     const topSection = new Component(this.node, 'section', 'details__top-section');
+
+    const closeBtn = new Component(topSection.node, "div", "close-btn");
+    closeBtn.node.onclick = () => closeModal();
+    const line1 = new Component(closeBtn.node, "span", "");
+    const line2 = new Component(closeBtn.node, "span", "");
 
 /*                         Set poster                        */
     const imgWrapper = new Component(topSection.node, 'div', 'top-section__img-wrapper');

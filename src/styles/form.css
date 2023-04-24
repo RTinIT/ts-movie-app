@@ -22,7 +22,7 @@
 
 .input-wrapper {
   position: relative;
-  margin: 50px auto;
+  margin: 2em auto;
   width: 200px;
 }
 
@@ -103,6 +103,6 @@
   }
 
   .input-wrapper .input-wrapper__label {
-    left: calc(50% - 67px);
+    left: calc(50% - 24px);
   }
 }

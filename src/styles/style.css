@@ -1,11 +1,13 @@
 @import '../../node_modules/normalize.css/normalize.css';
 @import './fonts.css';
-@import './card.css';
-@import './card-field.css';
 @import './form.css';
+@import './main.css';
+@import './card-field.css';
+@import './card.css';
+@import './modal.css';
 @import './details.css';
 @import './rating.css';
-@import './modal.css';
+
 
 
 *{

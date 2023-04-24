@@ -24,6 +24,11 @@
   color: inherit;
   background: #f7f7f733;
   border-radius: 8px;
+  transition: .3s;
+}
+
+.scroll-to-top:hover {
+  background: #f71fe6;
 }
 
 .scroll-to-top img {

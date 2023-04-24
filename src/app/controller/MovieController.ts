@@ -26,7 +26,7 @@ class MovieController {
       e.preventDefault();
       this.searching();
     });
-    this.view.cardField.cardList.forEach((e) => {
+    this.view.main.cardField.cardList.forEach((e) => {
       e.node.addEventListener('click', (e: Event) => {
         document.body.classList.add("blocked");
         this.saveSelectedCard(e);
@@ -37,8 +37,9 @@ class MovieController {
 
   private searching() {
     const value = this.view.header.search.getValue();
-    this.view.header.search.clearInput();
     this.model.getData(value).then((data) => {
+      this.view.main.setTitle(`Результаты поиска: ${value}`);
+      this.view.header.search.clearInput();
       this.view.update(data);
       this.setEventListeners(data);
     });

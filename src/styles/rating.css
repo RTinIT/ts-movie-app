@@ -64,7 +64,7 @@ svg {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 568px) {
   .rating__stars {
     display: none;
   }

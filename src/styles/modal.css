@@ -7,57 +7,6 @@
 
 }
 
-.modal__close-btn {
-  width: 2em;
-  height: 2em;
-  position: relative;
-  transform: rotate(45deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  cursor: pointer;
-  left: 94%;
-  top: 4%;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.modal__close-btn span {
-  display: block;
-  position: absolute;
-  height: 0.2em;
-  width: 100%;
-  background: #fff;
-  border-radius: 40%;
-  opacity: 1;
-  left: 0;
-  -webkit-transition: .25s;
-  -moz-transition: .25s;
-  -o-transition: .25s;
-  transition: .25s;
-}
-
-.modal__close-btn:hover span {
-  background: #f71fe6;
-}
-
-.modal__close-btn:active span{
-  background: #000;
-}
-
-.modal__close-btn span:nth-child(1) {
-  top: calc(50% - 0.2em);
-  left:0;
-}
-
-.modal__close-btn span:nth-child(2){
-  left: 0;
-  top: calc(50% - 0.2em);
-  left: 0;
-  transform: rotate(90deg);
-}
-
 @keyframes modal-show {
   from {
     transform: translate(0px, -10%);
@@ -79,27 +28,3 @@
   to {opacity: 0;}
 }
 
-@keyframes close-btn-line1-animate {
-  from {left: 0;}
-  to {left: -60px;}
-}
-
-.line1-broke {
-  animation: close-btn-line1-animate .4s ease;
-}
-
-@keyframes close-btn-line2-animate {
-  from {top: 0;}
-  to {top: -60px;}
-}
-
-.line2-broke {
-  animation: close-btn-line2-animate .4s ease;
-}
-
-
-@media (max-width: 810px) {
-  .modal__close-btn {
-    left: 86%;
-  }
-}
