@@ -19,6 +19,7 @@ class SearchBlock {
     this.input.className = 'input';
     this.input.id = 'input';
     this.input.setAttribute("required", "");
+    this.input.setAttribute("autocomplete", "off");
   
     const inputWrapper = new Component(this.form, "div", "input-wrapper");
     inputWrapper.node.append(this.input);

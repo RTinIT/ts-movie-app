@@ -1,16 +1,16 @@
 import Component from "../../../common/component";
-import { AdditionalDataType } from "../../../common/interfaces";
-import AdditionalView from "./AdditionalView";
+import { DetailsDataType } from "../../../common/interfaces";
+import Details from "./Details";
 
 class Modal extends Component {
-  private data: AdditionalDataType;
-  private additionalInfo: AdditionalView;
+  private data: DetailsDataType;
+  private detailsInfo: Details;
   private closeBtn: Component;
   private line1: Component;
   private line2: Component;
   private closeImg: Component;
 
-  constructor(parent: HTMLElement, data: AdditionalDataType) {
+  constructor(parent: HTMLElement, data: DetailsDataType) {
     super(parent, "div", "modal");
     this.data = data;
 
@@ -18,7 +18,7 @@ class Modal extends Component {
     this.closeBtn.node.onclick = () => this.hide();
     this.line1 = new Component(this.closeBtn.node, "span", "");
     this.line2 = new Component(this.closeBtn.node, "span", "");
-    this.additionalInfo = new AdditionalView(this.node, data);
+    this.detailsInfo = new Details(this.node, data);
   }
 
   private hide() {

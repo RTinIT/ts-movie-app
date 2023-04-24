@@ -1,4 +1,4 @@
-import { AdditionalDataType, IMovieData } from "../../common/interfaces";
+import { DetailsDataType, IMovieData } from "../../common/interfaces";
 
 class MovieModel {
   private apiKey: string;
@@ -30,7 +30,7 @@ class MovieModel {
     }
   }
 
-  public async getDataByFilmId(id: string): Promise<AdditionalDataType> {
+  public async getDataByFilmId(id: string): Promise<DetailsDataType> {
     try {
       return Promise.all([
         await (await fetch(`${this.searchByIdUrl}${id}`, {headers: this.headers})).json(),

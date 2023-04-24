@@ -1,18 +1,18 @@
 import Component from '../../../common/component';
-import { AdditionalDataType } from '../../../common/interfaces';
+import { DetailsDataType } from '../../../common/interfaces';
 import { handler, isNull, staffHandler } from '../../../common/util';
 import { Rating } from './Rating';
 import MovieInfo from './MovieInfo';
 
-class AdditionalView extends Component {
-  constructor(parent: HTMLElement, data?: AdditionalDataType) {
-    super(parent, 'div', 'additional-info');
+class Details extends Component {
+  constructor(parent: HTMLElement, data?: DetailsDataType) {
+    super(parent, 'div', 'details');
 
 /*                         Used data                        */
     const [filmData, staffData] = data;
 
 /*                         Section                        */
-    const topSection = new Component(this.node, 'section', 'additional-info__top-section');
+    const topSection = new Component(this.node, 'section', 'details__top-section');
 
 /*                         Set poster                        */
     const imgWrapper = new Component(topSection.node, 'div', 'top-section__img-wrapper');
@@ -53,4 +53,4 @@ class AdditionalView extends Component {
   }
 }
 
-export default AdditionalView;
+export default Details;

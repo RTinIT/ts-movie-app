@@ -83,12 +83,12 @@ export interface IStaffData {
   professionKey: string
 }
 
-export type AdditionalDataType = [
+export type DetailsDataType = [
   IFilmDataById,
   IStaffData[],
 ]
 
-export interface IAdditionalData {
+export interface IDetailsData {
   filmData: IFilmDataById,
   staffData: IStaffData[],
 }

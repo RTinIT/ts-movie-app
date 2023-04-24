@@ -1,5 +1,5 @@
 import Component from '../../common/component';
-import { AdditionalDataType, IResponseData } from '../../common/interfaces';
+import { DetailsDataType, IResponseData } from '../../common/interfaces';
 import CardField from './components/CardField';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -25,7 +25,7 @@ class MovieView {
     this.cardField = new CardField(this.cardFieldWrapper.node, data.films);
   }
 
-  public showModal(data: AdditionalDataType) {
+  public showModal(data: DetailsDataType) {
     this.modal = new Modal(this.root.node, data);
   }
 }
